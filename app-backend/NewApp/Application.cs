@@ -1,18 +1,27 @@
+using Twenty57.Builder.ApplicationRuntime.Interfaces;
+
 namespace NewApp;
 
-internal sealed class Application(ILogger<Application> logger) : IHostedService
+internal sealed class Application(IEnumerable<IService> services, ILogger<Application> logger) : IHostedService
 {
+    private readonly IEnumerable<IService> _services = services;
     private readonly ILogger<Application> _logger = logger;
 
-    public Task StartAsync(CancellationToken cancellationToken)
+    public async Task StartAsync(CancellationToken cancellationToken)
     {
         _logger.LogInformation("Application started.");
-        return Task.CompletedTask;
+        foreach (var service in _services)
+        {
+            await service.StartAsync(cancellationToken);
+        }
     }
 
-    public Task StopAsync(CancellationToken cancellationToken)
+    public async Task StopAsync(CancellationToken cancellationToken)
     {
         _logger.LogInformation("Application stopping.");
-        return Task.CompletedTask;
+        foreach (var service in _services)
+        {
+            await service.StopAsync(cancellationToken);
+        }
     }
 }

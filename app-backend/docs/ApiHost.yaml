@@ -1,0 +1,29 @@
+openapi: 3.0.3
+info:
+  title: ApiHost
+  version: 1.0.0
+  description: REST host exposing operational endpoints for the application.
+paths:
+  /health:
+    get:
+      operationId: GetHealth
+      summary: Reports the health status of the service.
+      description: Returns a simple health status indicating that the service is running.
+      responses:
+        '200':
+          description: The service is healthy.
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/HealthResponse'
+components:
+  schemas:
+    HealthResponse:
+      type: object
+      required:
+        - status
+      properties:
+        status:
+          type: string
+          description: The health status of the service.
+          example: Healthy

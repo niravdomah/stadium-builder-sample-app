@@ -10,11 +10,20 @@
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="10.0.10" />
     <PackageReference Include="Microsoft.OpenApi" Version="2.11.0" />
+    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerUI" Version="10.2.3" />
     <PackageReference Include="NSwag.MSBuild" Version="14.7.1">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
     <PackageReference Include="Twenty57.Builder.ApplicationRuntime.Sdk" Version="0.0.1-pre.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <InternalsVisibleTo Include="NewApp.Tests" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Include="$(MSBuildThisFileDirectory)..\docs\ApiHost.yaml" LogicalName="NewApp.ApiHost.yaml" />
   </ItemGroup>
 
   <ItemGroup>
