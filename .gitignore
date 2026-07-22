@@ -1,0 +1,15 @@
+[Oo]bj/
+[Bb]in/
+artifacts/
+*.g.cs
+.vs/
+.vscode/*.*
+!.vscode/tasks.json
+!.vscode/launch.json
+launchSettings.json
+*.user
+*.feature.cs
+
+.claude/settings.local.json
+.claude/preferences.json
+.claude/logs
