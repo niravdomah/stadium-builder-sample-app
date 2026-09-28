@@ -1,2 +1,2 @@
 build:
-  - BP_DOTNET_PROJECT_PATH
+  BP_DOTNET_PROJECT_PATH: ../../../etc
