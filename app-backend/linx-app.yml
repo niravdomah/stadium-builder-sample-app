@@ -1,2 +1,2 @@
 build:
-  BP_DOTNET_PROJECT_PATH: NewApp
+  BP_NOT_SUPPORTED: NewApp
