@@ -1,3 +1,5 @@
+build:
+  BP_DOTNET_PROJECT_PATH: app-backend/NewApp
 test:
   image: mcr.microsoft.com/dotnet/sdk:10.0
   command: dotnet test ../NewApp.Tests
